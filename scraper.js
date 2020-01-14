@@ -21,7 +21,7 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-var recursiveAsyncReadLine = function() {
+const recursiveAsyncReadLine = function() {
     rl.question(' Input MyAnimeList ID: '.calmError + 'https://myanimelist.net/anime/', (myUserInput) => {
 
         const myAnimeIdentification = `${myUserInput}`;
@@ -33,7 +33,7 @@ var recursiveAsyncReadLine = function() {
         malScraper.getInfoFromURL(url)
             .then(({ title, englishTitle, synonyms, japaneseTitle, premiered, aired }) => {
                 const EOC = `\t`
-                var dateobj = new Date(aired); 
+                const dateobj = new Date(aired); 
                 const release = premiered || dateobj.toLocaleDateString(undefined, { year: 'numeric', month: '2-digit', day: '2-digit' });
 				const clipboardText = url + `/||` + title + EOC + englishTitle + EOC + japaneseTitle + EOC + synonyms + EOC + release
                 const fileText = clipboardText + `\n`
