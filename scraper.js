@@ -33,7 +33,7 @@ const recursiveAsyncReadLine = function() {
         malScraper.getInfoFromURL(url)
             .then(({ title, englishTitle, synonyms, japaneseTitle, premiered, aired }) => {
                 const EOC = `\t`
-                const dateobj = new Date(aired); 
+                const dateobj = new Date(aired.split(' to')[0]); 
                 const release = premiered || dateobj.toLocaleDateString(undefined, { year: 'numeric', month: '2-digit', day: '2-digit' });
 				const clipboardText = url + `/||` + title + EOC + englishTitle + EOC + japaneseTitle + EOC + synonyms + EOC + release
                 const fileText = clipboardText + `\n`
