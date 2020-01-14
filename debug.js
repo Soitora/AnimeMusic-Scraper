@@ -12,7 +12,7 @@ colors.setTheme({
 console.log('\x1Bc');
 console.log(` MAL-Scraper Debugger`.notice);
 console.log(` Created by Soitora with Kylart/MalScraper`.info);
-console.log(` Made for debugging the AnimeMusic-Scraper\n`.info);
+console.log(` Made for debugging the Anime Music Scraper\n`.info);
 
 const rl = readline.createInterface({
     input: process.stdin,

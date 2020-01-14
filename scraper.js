@@ -12,7 +12,7 @@ colors.setTheme({
 });
 
 console.log('\x1Bc');
-console.log(` AnimeMusic Scraper 2.0.0`.notice);
+console.log(` Anime Music Scraper 2.0.0`.notice);
 console.log(` Created by Soitora with Kylart/MalScraper`.info);
 console.log(` Made for use with https://animemusic.org/\n`.info);
 
