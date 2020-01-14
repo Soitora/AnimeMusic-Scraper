@@ -1,0 +1,1 @@
+pkg -t node8-win scraper.js
