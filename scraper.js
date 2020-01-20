@@ -7,6 +7,7 @@ const pjson = require('./package.json');
 console.log('\x1Bc');
 console.log(` Anime Music Scraper `.bold.cyan + pjson.version + `\n`);
 console.log(` Created by Soitora with Kylart/MalScraper`.grey);
+console.log(` Special thanks to Kylart and ParadoxOrigins`.grey);
 console.log(` Made for use with https://animemusic.org/\n`.grey);
 
 const rl = readline.createInterface({
