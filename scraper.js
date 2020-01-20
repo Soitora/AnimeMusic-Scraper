@@ -41,10 +41,9 @@ const recursiveAsyncReadLine = function() {
                 appendFile(filePath, fileText.replace(/,/g, ';'), 'utf-8', (err) => {
                     if (err) throw err
                 })
-                clipboard.copy(clipboardText.replace(/,/g, ';'), function() {
-                })
+                clipboard.copy(clipboardText.replace(/,/g, ';'), function() {})
             })
-            .catch((err) => console.log( `\n\n`.reset + ` X `.calmError + `ERROR`.error + ` (ID: ${myAnimeIdentification})\n\n`.calmError + `Input correct MyAnimeList ID:`.calmError))
+            .catch((err) => console.log( `\n` + ` ` + err + `\n\n`.calmError + ` Input correct MyAnimeList ID:`.calmError))
         recursiveAsyncReadLine();
 
     });
