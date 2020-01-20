@@ -1,20 +1,13 @@
 const readline = require('readline');
-const { appendFile } = require('fs');
 const malScraper = require('mal-scraper');
 const clipboard = require("copy-paste");
 const colors = require('colors');
-
-colors.setTheme({
-    notice: ['cyan', 'bgBlack', 'bold'],
-    info: 'grey',
-    calmError: ['red', 'bold'],
-    error: ['red', 'underline', 'bold']
-});
+const pjson = require('./package.json');
 
 console.log('\x1Bc');
-console.log(` Anime Music Scraper 2.0.1`.notice);
-console.log(` Created by Soitora with Kylart/MalScraper`.info);
-console.log(` Made for use with https://animemusic.org/\n`.info);
+console.log(` Anime Music Scraper `.bold.cyan + pjson.version + `\n`);
+console.log(` Created by Soitora with Kylart/MalScraper`.grey);
+console.log(` Made for use with https://animemusic.org/\n`.grey);
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -22,28 +15,25 @@ const rl = readline.createInterface({
 });
 
 const recursiveAsyncReadLine = function() {
-    rl.question(' Input MyAnimeList ID: '.calmError + 'https://myanimelist.net/anime/', (myUserInput) => {
+    rl.question(' Input MyAnimeList ID: '.bold.red + 'https://myanimelist.net/anime/', (input) => {
 
-        const myAnimeIdentification = `${myUserInput}`;
-        const base = 'https://myanimelist.net/anime/';
-        const url = `${base}${myAnimeIdentification}`;
+        const base = 'https://myanimelist.net';
+        const type = 'anime';
+        const url = `${base}/${type}/${input}`;
 
-        console.log(` Saving to file and clipboard...\n`.info);
+        console.log(` Saving to clipboard...\n`.grey);
 
         malScraper.getInfoFromURL(url)
             .then(({ title, englishTitle, synonyms, japaneseTitle, premiered, aired }) => {
-                const EOC = `\t`
-                const dateobj = new Date(aired.split(' to')[0]); 
-                const release = premiered || dateobj.toLocaleDateString(undefined, { year: 'numeric', month: '2-digit', day: '2-digit' });
-				const clipboardText = url + `/||` + title + EOC + englishTitle + EOC + japaneseTitle + EOC + synonyms + EOC + release
-                const fileText = clipboardText + `\n`
-                const filePath = `output.txt`
-                appendFile(filePath, fileText.replace(/,/g, ';'), 'utf-8', (err) => {
-                    if (err) throw err
-                })
-                clipboard.copy(clipboardText.replace(/,/g, ';'), function() {})
+                
+                const date = new Date(aired.split(' to')[0]); 
+                const release = premiered || date.toLocaleDateString(undefined, { year: 'numeric', month: '2-digit', day: '2-digit' });
+				const fileText = url + `\t` + title + `\t` + englishTitle + `\t` + japaneseTitle + `\t` + synonyms + `\t` + release
+                
+                clipboard.copy(fileText.replace(/,/g, ';'), function() {})
+                
             })
-            .catch((err) => console.log( `\n` + ` ` + err + `\n\n`.calmError + ` Input correct MyAnimeList ID:`.calmError))
+            .catch((err) => console.log(colors.red(`\n ` + err)))
         recursiveAsyncReadLine();
 
     });
