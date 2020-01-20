@@ -5,7 +5,7 @@ const { EOL } = require('os');
 const colors = require('colors');
 const pjson = require('./package.json');
 
-const file = readFileSync(join(__dirname, "input.txt"), 'utf-8');
+const file = readFileSync(join(__dirname, 'input.txt'), 'utf-8');
 const lines = file.split(EOL);
 const sleep = (time) => new Promise(resolve => { setTimeout(resolve, time); });
 
@@ -27,7 +27,7 @@ console.log(` Made for use with https://animemusic.org/\n`.grey);
     const fileText = url + `\t` + data.title + `\t` + data.englishTitle + `\t` + data.japaneseTitle + `\t` + data.synonyms + `\t` + release + `\n`;
     console.log(` Saved ` +  data.title.bold.red)
 
-    await appendFile(`output.txt`, fileText.replace(/,/g, ';'), 'utf-8');
+    await appendFile(join(__dirname, 'output.txt'), fileText.replace(/,/g, ';'), 'utf-8');
     await sleep(1000); // wait one second
   }
 })();
