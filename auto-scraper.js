@@ -23,9 +23,9 @@ console.log(` Special thanks to @Kylart and @ParadoxOrigins!\n`.grey);
   for (const line of lines) {
     const data = await malScraper.getInfoFromURL(`${url}/${line}`);
     const date = new Date(data.aired.split(' to')[0]); 
-    const aired = date.toLocaleDateString(undefined, { year: 'numeric', month: '2-digit', day: '2-digit' });
+    const airDate = date.toLocaleDateString(undefined, { year: 'numeric', month: '2-digit', day: '2-digit' });
     const season = data.premiered || date.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit' }).replace(/(?<!\S)0[1-3]\/(?![^\s\d])/g, 'Winter ').replace(/(?<!\S)0[4-6]\/(?![^\s\d])/g, 'Spring ').replace(/(?<!\S)0[7-9]\/(?![^\s\d])/g, 'Summer ').replace(/(?<!\S)1[0-2]\/(?![^\s\d])/g, 'Fall ')
-    const fileText = url + `/` + line + `/` + `\t` + data.title + `\t` + data.englishTitle + `\t` + data.japaneseTitle + `\t` + data.synonyms + `\t` + season + `\t` + aired + `\t` + data.picture + `\n`;
+    const fileText = url + `/` + line + `/` + `\t` + data.title + `\t` + data.englishTitle + `\t` + data.japaneseTitle + `\t` + data.synonyms + `\t` + season + `\t` + airDate + `\t` + data.picture + `\n`;
     console.log(` Saved ` +  data.title.bold.red)
 
     await appendFile(join(__dirname, 'output.txt'), fileText.replace(/,/g, ';'), 'utf-8');
