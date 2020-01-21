@@ -5,9 +5,9 @@ const pjson = require('./package.json');
 
 console.log('\x1Bc');
 console.log(` Anime Music Debugger `.bold.cyan + pjson.version + `\n`);
-console.log(` Created by Soitora with Kylart/MalScraper`.grey);
-console.log(` Special thanks to Kylart and ParadoxOrigins`.grey);
-console.log(` Made for debugging the Anime Music Scraper\n`.grey);
+console.log(` Created by @Soitora with \"Kylart/MalScraper\".`.grey);
+console.log(` Made for use with https://animemusic.org/`.grey);
+console.log(` Special thanks to @Kylart and @ParadoxOrigins!\n`.grey);
 
 const rl = readline.createInterface({
     input: process.stdin,
