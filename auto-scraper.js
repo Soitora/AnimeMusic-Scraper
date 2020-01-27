@@ -28,7 +28,7 @@ console.log(` Special thanks to @Kylart and @ParadoxOrigins!\n`.grey);
     const fileText = url + `/` + line + `/` + `\t` + data.title + `\t` + data.englishTitle + `\t` + data.japaneseTitle + `\t` + data.synonyms + `\t` + season + `\t` + airDate + `\t` + data.picture + `\n`;
     console.log(` Saved ` +  data.title.bold.red)
 
-    await appendFile(join(__dirname, 'output.txt'), fileText.replace(/,/g, ';'), 'utf-8');
+    await appendFile(join(__dirname, 'output.txt'), fileText.replace(/,/g, ';').replace(/'/g, ''), 'utf-8');
     await sleep(1000); // wait one second
   }
 })();
