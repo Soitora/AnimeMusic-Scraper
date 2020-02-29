@@ -1,1 +1,1 @@
-break>C:\Users\Simon\Programming\GitHub\Soitora\animemusic-scraper\output.txt
+break>output.txt
