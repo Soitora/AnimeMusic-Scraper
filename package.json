@@ -3,9 +3,17 @@
   "version": "2.1.1",
   "description": "Scrap specific things from MyAnimeList.net, modified version of MalScraper (https://github.com/Kylart/MalScraper) by Kylart.",
   "main": "scraper.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+	"scripts": {
+    "scraper": "node .\\scraper.js",
+    "auto-scraper": "npm run clear && node .\\auto-scraper.js",
+    "debug": "node .\\debug.js",
+		"clear": "break>output.txt && @echo off && cls && echo Cleared output.txt",
+		"build": "pkg -t node8-win scraper.js"
   },
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Soitora/animemusic-scraper.git"
+	},
   "author": "Soitora",
   "license": "MIT",
   "keywords": [
