@@ -1,0 +1,25 @@
+name: Tagged release
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  gh_tagged_release:
+    name: Tagged Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install and build
+        run: |
+            npm run install
+            npm run build
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.ACTIONS_DEPLOY_KEY }}"
+          prerelease: false
+          files: |
+            animemusic-scraper.exe
+            LICENSE
