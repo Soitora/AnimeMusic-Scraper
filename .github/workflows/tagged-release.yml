@@ -1,4 +1,4 @@
-name: Tagged release
+name: Build and release scraper
 
 on:
   push:
@@ -7,10 +7,14 @@ on:
 
 jobs:
   gh_tagged_release:
-    name: Tagged Release
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+
       - name: Install and build
         run: |
             npm run install
