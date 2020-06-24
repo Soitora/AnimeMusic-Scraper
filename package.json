@@ -1,6 +1,6 @@
 {
   "name": "animemusic-scraper",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Scrap specific things from MyAnimeList.net, modified version of MalScraper (https://github.com/Kylart/MalScraper) by Kylart.",
   "main": "scraper.js",
   "scripts": {
