@@ -1,9 +1,9 @@
 {
   "name": "animemusic-scraper",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Scrap specific things from MyAnimeList.net, modified version of MalScraper (https://github.com/Kylart/MalScraper) by Kylart.",
   "main": "scraper.js",
-	"scripts": {
+  "scripts": {
     "scraper": "node .\\scraper.js",
     "auto-scraper": "npm run clear && node .\\auto-scraper.js",
     "debug": "node .\\debug.js",
@@ -15,10 +15,6 @@
     "type": "git",
     "url": "git+https://github.com/Soitora/animemusic-scraper.git"
   },
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Soitora/animemusic-scraper.git"
-	},
   "author": "Soitora",
   "license": "MIT",
   "keywords": [
