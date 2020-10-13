@@ -32,7 +32,7 @@
     "colors": "^1.4.0",
     "copy-paste": "^1.3.0",
     "fs": "0.0.1-security",
-    "mal-scraper": "^2.11.1",
+    "mal-scraper": "^2.11.2",
     "path": "^0.12.7",
     "pkg": "^4.4.9",
     "readline": "^1.3.0"
