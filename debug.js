@@ -1,5 +1,5 @@
-const malScraper = require('mal-scraper')
 const readline = require('readline');
+const malScraper = require('mal-scraper')
 const colors = require('colors');
 const pjson = require('./package.json');
 
@@ -10,25 +10,25 @@ console.log(` Made for use with https://animemusic.org/`.grey);
 console.log(` Special thanks to @Kylart and @ParadoxOrigins!\n`.grey);
 
 const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
+	input: process.stdin,
+	output: process.stdout
 });
 
 var recursiveAsyncReadLine = function() {
-    rl.question(' Input MyAnimeList ID: '.bold.red + 'https://myanimelist.net/anime/', (input) => {
+	rl.question(' Input MyAnimeList ID: '.bold.red + 'https://myanimelist.net/anime/', (input) => {
 
-        const base = 'https://myanimelist.net';
-        const type = 'anime';
-        const url = `${base}/${type}/${input}`;
+		const base = 'https://myanimelist.net';
+		const type = 'anime';
+		const url = `${base}/${type}/${input}`;
 
-        console.log(` Grabbing data...\n`.grey);
+		console.log(` Grabbing data...\n`.grey);
 
-        malScraper.getInfoFromURL(url)
+		malScraper.getInfoFromURL(url)
 		  .then((data) => console.log(data))
 		  .catch((err) => console.log(colors.red(err)))
-        setTimeout(recursiveAsyncReadLine, 5000);
+		setTimeout(recursiveAsyncReadLine, 5000);
 		
-    });
+	});
 };
 
 recursiveAsyncReadLine();
