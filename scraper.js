@@ -20,7 +20,7 @@ const recursiveAsyncReadLine = function() {
 
         const base = 'https://myanimelist.net';
         const type = 'anime';
-        const url = `${base}/${type}/${input}`;
+        const url = `${base}/${type}/${input}/`;
 
         console.log(` Saving to clipboard...\n`.grey);
 
